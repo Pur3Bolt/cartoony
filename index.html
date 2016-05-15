@@ -2,52 +2,57 @@
 <html lang="en">
 
 <head>
-	  <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Patient Data</title>
-	  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700' rel='stylesheet' type='text/css'>
-    
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
+
     <script src="js/data.js"></script>
 
 
-	  
-	  <style>
-          body {
-	overflow: hidden;
-}
 
+    <style>
+        body {
+            overflow: hidden;
+        }
         /* Preloader */
+        
         #preloader {
             position: fixed;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            background-color:#fff; /* change if the mask should be a color other than white */
-            z-index:99; /* makes sure it stays on top */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            /* change if the mask should be a color other than white */
+            z-index: 99;
+            /* makes sure it stays on top */
         }
-
+        
         #status {
-            width:200px;
-            height:200px;
-            position:absolute;
-            left:50%; /* centers the loading animation horizontally on the screen */
-            top:50%; /* centers the loading animation vertically on the screen */
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            /* centers the loading animation horizontally on the screen */
+            top: 50%;
+            /* centers the loading animation vertically on the screen */
             font-size: 7em;
-            background-repeat:no-repeat;
-            background-position:center;
-            margin:-100px 0 0 -100px; /* is width and height divided by two */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+            /* is width and height divided by two */
             text-align: center;
             color: red;
         }
-    
+        
         body {
             background: #f0f0f0;
             color: #444;
@@ -75,7 +80,7 @@
             border: solid 5px #2c3e50;
             border-radius: 5px;
             border-bottom: 0;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             margin-bottom: -10px;
         }
         
@@ -86,9 +91,8 @@
             font-weight: bold;
         }
         
-        .frame .col-md-12{
+        .frame .col-md-12 {
             padding: 20px;
-            
         }
         
         .container {
@@ -102,77 +106,80 @@
             width: 100%;
             height: 30%;
             border-bottom: solid 20px transparent;
-        }        
-    
-      </style>
-	  
+        }
+    </style>
+
 </head>
 
 <body>
-<!-- Preloader -->
-<div id="preloader">
-	<div id="status"><i class="icon ion-ios-heart" id="loaderIcon" aria-hidden="true"></i></div>
-</div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status"><i class="icon ion-ios-heart" id="loaderIcon" aria-hidden="true"></i></div>
+    </div>
 
-<div id="pacientStatus">&nbsp;</div>
-<div class="container">
+    <div id="pacientStatus">&nbsp;</div>
+    <div class="container">
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
 
-          <div class="row">
-                    
-                    <div id="canvasDiv"> <h1 class="text-center">John Doe</h1> </div>
-                
-            </div>
-            <div class="row frame">
+                <div class="row">
 
-                <div class="col-md-12" >
-                    <div id="pulse" data-toggle="tooltip" title="Good between 71&75">
-                        <span class="iconRow"><i class="icon ion-ios-pulse-strong" aria-hidden="true"></i> </span>
-                        <span class="data" id="pulseValue"></span>
-                        <span class="unit" id="pulseUnit"></span>
-                    </div>
+                    <div id="canvasDiv">
+                        <h1 class="text-center">John Doe</h1> </div>
+
                 </div>
-                <div class="col-md-12" style="background:#efefef">
-                    <div id="temperature" data-toggle="tooltip" title="Good between 35&37.5">
-                        <span class="iconRow"><i class="icon icon ion-thermometer" aria-hidden="true"></i></span>
-                        <span class="data" id="tempValue"></span>
-                        <span class="unit" id="tempUnit"></span>
+                <div class="row frame">
+
+                    <div class="col-md-12">
+                        <div id="pulse" data-toggle="tooltip" title="Good between 71&75">
+                            <span class="iconRow"><i class="icon ion-ios-pulse-strong" aria-hidden="true"></i> </span>
+                            <span class="data" id="pulseValue"></span>
+                            <span class="unit" id="pulseUnit"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div id="bloodPresure" data-toggle="tooltip" title="Good between 90-120 / 60-80">
-                        <span class="iconRow"><i class="icon ion-speedometer" aria-hidden="true"></i></span>
-                        <span class="data" ><span class="data" id="pressureSystolic"></span> / <span class="data" id="pressureDiastolic"></span></span>
-                        <span class="unit" id="pressureUnit"></span>
+                    <div class="col-md-12" style="background:#efefef">
+                        <div id="temperature" data-toggle="tooltip" title="Good between 35&37.5">
+                            <span class="iconRow"><i class="icon icon ion-thermometer" aria-hidden="true"></i></span>
+                            <span class="data" id="tempValue"></span>
+                            <span class="unit" id="tempUnit"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="bloodPresure" data-toggle="tooltip" title="Good between 90-120 / 60-80">
+                            <span class="iconRow"><i class="icon ion-speedometer" aria-hidden="true"></i></span>
+                            <span class="data"><span class="data" id="pressureSystolic"></span> / <span class="data" id="pressureDiastolic"></span></span>
+                            <span class="unit" id="pressureUnit"></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-<script type="text/javascript" src="js/canvas.js"></script>
-<script type="text/javascript">
-     prepareCanvas(document.getElementById("canvasDiv"), 350, 400);
-</script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript">
+        prepareCanvas(document.getElementById("canvasDiv"), 350, 400);
+    </script>
 
-<!-- jQuery Plugin -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 
-<!-- Preloader -->
-<script type="text/javascript">
-	//<![CDATA[
-		$(window).load(function() { // makes sure the whole site is loaded
-			$('#status').fadeOut(); // will first fade out the loading animation
-			$('#preloader').delay(700).fadeOut('slow'); // will fade out the white DIV that covers the website.
-			$('body').delay(700).css({'overflow':'visible'});
-		})
-	//]]>
-</script> 
+    <!-- Preloader -->
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).load(function () { // makes sure the whole site is loaded
+                $('#status').fadeOut(); // will first fade out the loading animation
+                $('#preloader').delay(700).fadeOut('slow'); // will fade out the white DIV that covers the website.
+                $('body').delay(700).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
 
 </body>
+
 </html>
