@@ -90,16 +90,16 @@ function redraw() {
   temperature = document.getElementById("tempValue").innerHTML;
     if(temperature<35.0){
         context.drawImage(images["cold"], x+30, y - 60 - breathAmt, images["cold"].width*0.8,images["cold"].height*0.8);  
-        document.getElementById("temperature").style.color = "#FF0000"; 
+        document.getElementById("temperature").style.color = "#c0392b"; 
         pacientStatus = false;
     }
     else if(temperature>37.5){
         context.drawImage(images["hot"], x+10, y - 85 - breathAmt, images["hot"].width*0.8,images["hot"].height*0.8);
-        document.getElementById("temperature").style.color = "#FF0000";
+        document.getElementById("temperature").style.color = "#c0392b";
         pacientStatus = false;
     }
     else{
-        document.getElementById("temperature").style.color = "#00FF00";
+        document.getElementById("temperature").style.color = "#2ecc71";
     }
     
       
@@ -110,10 +110,10 @@ function redraw() {
    
     if(pressureSystolic >= 90 && pressureSystolic<=120 &&
      pressureDiastolic >= 60 && pressureDiastolic<=80){
-        document.getElementById("bloodPresure").style.color = "#00FF00";
+        document.getElementById("bloodPresure").style.color = "#2ecc71";
     }
     else{
-        document.getElementById("bloodPresure").style.color = "#FF0000";
+        document.getElementById("bloodPresure").style.color = "#c0392b";
         pacientStatus = false;
     }
     
@@ -147,10 +147,11 @@ function updateHeart() {
     }
     else if(heartRate>71&&heartRate<=75){
         heartSize=0;
-        document.getElementById("pulse").style.color = "#00FF00";
+        document.getElementById("pulse").style.color = "#2ecc71";
     }
     else {
-        document.getElementById("pulse").style.color = "#FF0000";
+        document.getElementById("pulse").style.color = "#c0392b";
+        pacientStatus=false;
         if(heartDir){
             heartSize-=heartRate/4000;
         }

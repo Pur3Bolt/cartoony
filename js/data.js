@@ -44,4 +44,3 @@ $.ajax({
         $("#pressureUnit").append(res[0].unit);
     }
 });
-
